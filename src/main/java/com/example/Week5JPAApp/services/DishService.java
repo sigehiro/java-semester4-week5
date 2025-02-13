@@ -15,11 +15,13 @@ public class DishService {
     @Autowired
     private DishRepository dishRepository;
 
+    // Method to retrieve all dishes from the database
     public List<Dish> getAllDishes() {
         //business logic should have been here
         return dishRepository.findAll();
     }
 
+    // Method to save a dish in the database
     public int saveDish(Dish dish) {
         //business logic should have been here
         //if price is greater than 20, do not save
@@ -45,20 +47,22 @@ public class DishService {
         return 0;
     }
 
-    //update a dish
+    // Method to update a dish in the database
     public void updateDish(Dish dish) {
         //business logic should have been here
         dishRepository.save(dish);
     }
 
-    //get a dish by id
+    // Method to retrieve a dish by its ID
     public Optional<Dish> getDishById(int id) {
         //business logic should have been here
         return dishRepository.findById(id);
     }
 
+    // Method to retrieve dishes by category and price
     public List<Dish> getDishByCategoryAndPrice(String category, double price) {
         //business logic should have been here
+
         return dishRepository.findByIgnoreCaseCategoryAndPrice(category, price);
     }
 

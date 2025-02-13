@@ -31,7 +31,6 @@
                 <th scope="col">Category</th>
                 <th scope="col">Price</th>
                 <th scope="col" colspan="2">Actions</th>
-
             </tr>
             </thead>
             <tbody>
@@ -47,10 +46,10 @@
                 <td th:text="${dish.category}">Otto</td>
                 <td th:text="${dish.price}">@mdo</td>
                 <td>
-                    <a th:href="@{/restaurant/delete/{id}(id=${dish.id})}"
-                    class="btn btn-danger btn-sm">Delete</a>
                     <a th:href="@{/restaurant/update/{id}(id=${dish.id})}"
-                    class="btn btn-danger btn-sm">Update</a>
+                        class="btn btn-primary btn-sm">Update</a>
+                    <a th:href="@{/restaurant/delete/{id}(id=${dish.id})}"
+                       class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
             </tbody>

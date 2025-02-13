@@ -69,11 +69,13 @@ public class DishController {
         //http://localhost:8080/restaurant/save
         //Data is input anything in add-dish -> solve <problem -> ID:0 in save page> -> auto increment
         //Subtract “-1” to get the last element of the list, since the list starts at index 0
+        // Get the last added dish from the list of saved dishes
         List<Dish> dishes = dishService.getAllDishes();
         Dish lastDishes = dishes.get(dishes.size() - 1);
 
         //save the data
         //open the menu page with updates data
+        // Add data to the model to open the menu with updated data
         model.addAttribute("dishes", lastDishes);
         model.addAttribute("message", lastDishes.getName() + " added successfully");
         return "menu";
@@ -83,10 +85,10 @@ public class DishController {
     //endpoint to delete a dish
     @GetMapping ("/delete/{id}")
     public String deleteDish(@PathVariable int id, Model model) {
+        // Delete the dish by ID and get status code
         int deleteStatusCode = dishService.deleteDishById(id);
 
-
-        //does delete succeed
+        // Check if delete was successful (dish exists)
         if (deleteStatusCode == 1) {
             return "redirect:/restaurant/menu?message=Dish deleted successfully!";
         }
